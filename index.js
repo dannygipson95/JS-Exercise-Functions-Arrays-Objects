@@ -124,9 +124,8 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName() {
-  greeting = 'Hello, my name is ' + this.name;
-  return  greeting;
+function getName(person) {
+  return 'Hello, my name is ' + person.name;
 }
 
 
@@ -145,8 +144,14 @@ function getName() {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(fruits) {
+  let apples = 0
+  for (let i = 0; i < fruits.length; i++){
+    if (fruits[i] === 'apple'){
+      apples++;
+    }
+  }
+  return apples;
 }
 
 /**
@@ -164,8 +169,16 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(fruits) {
+  let thisApple = [];
+  for (let i=0; i<fruits.length; i++){
+    if (fruits[i]==='apple'){
+      thisApple[i] = true;
+    } else {
+      thisApple[i] = false;
+    }
+  }
+  return thisApple;
 }
 
 
@@ -223,7 +236,8 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  const carInfo = inventory[index]
+  return `This is a ${carInfo.car_make} ${carInfo.car_model}`;
 }
 
 /**
