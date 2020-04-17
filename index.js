@@ -309,7 +309,7 @@ function getOlderCars(inventory, num) {
   const olderCars = []
   for (let i = 0; i<inventory.length; i++){
     if (inventory[i].car_year <= num){
-      olderCars[i] = inventory[i];
+      olderCars.push(inventory[i]);
     }
   }
   return olderCars;
@@ -328,8 +328,14 @@ function getOlderCars(inventory, num) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  let germanCars = [];
+  for (let i=0; i < inventory.length; i++){
+    if (inventory[i].car_make === 'Audi' || 'Mercedes-Benz' || 'Volkswagen' || 'BMW'){
+      germanCars.push(inventory[i]);
+    }
+  }
+  return germanCars;
 }
 
 /**
